@@ -1,0 +1,74 @@
+# Importing the requirements
+import random
+
+# Initializing
+
+game = ['Rock','Paper','Scissors']
+pscore = 0
+cscore = 0
+
+exit = False
+
+print('Welcome to the Rock Paper Scissors...')
+
+while True:
+
+    player = input('\nRock / Scissors / Paper: ').capitalize()
+    computer = random.choice(game)
+
+    if player == 'Exit':
+
+        exit = True
+
+        print('\nFinal Scores: ')
+        print(f'Player Score {pscore}')
+        print(f'Computer Score {cscore}')
+
+        if pscore > cscore:
+            print('\nYou Won the Match!! Congratulation!!')
+
+        elif cscore > pscore:
+            print('\nComputer Won!! Better luck next time.')
+
+        else:
+            print('\nIt is a tie!!')
+        
+        break
+    
+    if not exit:
+        print(f'Computer Choose {computer}')
+
+    # Main Logic
+
+    if player == computer:
+        print('Tie!!')
+    
+    elif player == 'Rock' and computer == 'Scissors':
+        print('Player Won!!')
+        pscore += 1
+
+    elif player == 'Rock' and computer == 'Paper':
+        print('Computer Won!!')
+        cscore += 1
+
+    elif player == 'Scissors' and computer == 'Rock':
+        print('Computer Won!!')
+        cscore += 1
+
+    elif player == 'Scissors' and computer == 'Paper':
+        print('Player Won!!')
+        pscore += 1
+
+    elif player == 'Paper' and computer == 'Scissors':
+        print('Computer Won!!')
+        cscore += 1
+
+    elif player == 'Paper' and computer == 'Rock':
+        print('Player Won!!')
+        pscore += 1
+
+    else:
+        print('Invalid Input!!')
+
+    print(f'\nPlayer Score {pscore}')
+    print(f'Computer Score {cscore}')
