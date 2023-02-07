@@ -1,0 +1,26 @@
+# importing the requirements
+
+from tkinter import *
+from tkinter.ttk import *
+from time import strftime
+
+# creating a window
+
+window = Tk()
+window.geometry('800x200+350+250')
+window.title('Digital Clock')
+window.configure(bg='black')
+window.resizable(0,0)
+
+def time():
+    string = strftime('%H:%M:%S %p')
+    label.config(text=string)
+    label.after(1000,time)
+
+label = Label(window,background='black',foreground='white',font=('ds-digital',80))
+label.grid(padx=75,pady=30)
+
+time()
+
+# to keep the application running
+mainloop()
